@@ -1,0 +1,220 @@
+@media screen and (orientation:portrait) {
+  .body {
+    background-color: cyan;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    height: 100%;
+  }
+  .container-fluid {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+  }
+  .header {
+    width: 100%;
+    border-radius: 10px;
+    margin: 0% 0% 2% 0%;
+    padding-right: 10%;
+  }
+  .nav {
+    padding: 2% 4% 2% 6%;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    right: 30%;
+    font-size: 90%;
+  }
+  .nav-item {
+    margin: 1% 0% 0% 7%;
+    list-style: none;
+    display: inline;
+  }
+  .nav-link {
+    text-decoration: none;
+  }
+  .logoImg {
+    width: 100%;
+  }
+  .cart {
+    width: 50%;
+    background-color: orange;
+    border-radius: 10px;
+    margin: 2% 0% 2% 0%;
+    position: relative;
+    right: 3%;
+    padding: 0% 0% 0% 0%;
+  }
+  .hero {
+    width: 100%;
+    border-bottom: solid;
+    padding: 1% 1% 1% 1%;
+    position: relative;
+    left: 4%;
+    background-color: bisque;
+  }
+  .heroCont {
+    position: relative;
+    bottom: 10px;
+  }
+  .recommendations {
+    width: 100%;
+    text-align: center;
+  }
+  .recommTitle {
+    width: 100%;
+  }
+  .recom1, .recom2, .recom3 {
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    width: 30%;
+    padding: 3%;
+  }
+  .recom2, .recom3 {
+    position: relative;
+    left: 4%;
+  }
+  .recom3 {
+    position: relative;
+    left: 8%; 
+  }
+  .imgRecom {
+    width: 96%;
+  }
+  .recomCap {
+    width: 90%;
+    overflow: hidden;
+  }
+  .cats {
+    width: 100%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0% 0% 2% 0%;
+  }
+  .cat1, .cat2, .cat3 {
+    position: relative;
+    left: 5%;
+  }
+  .categoryTitle {
+    text-align: center;
+    padding: 2% 0% 0% 0%;
+  }
+  .imgCat {
+    width: 100%;
+  }
+  .catCap {
+    width: 90%;
+    overflow: hidden;
+  }
+  .top1, .top2 {
+    border-right: solid;
+  }
+  .new {
+    width: 100%;
+    background-color: lightsalmon;
+    margin: 4% 0% 0% 0%;
+    border-radius: 10px;
+    position: relative;
+    left: 5%;
+  }
+  .newTitle {
+    text-align: center;
+    background-color: aliceblue;
+  }
+  .new1, .new2, .new3 {
+    width: 100%;
+    border-style: solid;
+  }
+  .testimonials {
+    background-color: whitesmoke;
+    text-align: center;
+    margin: 4% 0% 0% 0%;
+    border-radius: 10px;
+  }
+  .updated {
+    width: 100%;
+    text-align: center;
+  }
+  .subscribe {
+    width: 100%;
+    text-align: center;
+  }
+  .emailsub {
+    position: relative;
+    left: 7%;
+  }
+  .chatbot {
+    width: 5%;
+    padding: 4% 0% 4% 0%;
+    height: 5%;
+    border-radius: 100px;
+  }
+  .botProfile {
+    width: 60%;
+    position: relative;
+    left: 22%;
+  }
+  .botCap {
+    width: 80%;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    left: 10%;
+    font-size: 70%; 
+  }
+  .searchInput {
+    width: 60%;
+    position: relative;
+    bottom: 5px;
+  }
+ .searchImg {
+  width: 100%;
+ }
+ .searchbtn {
+  width: 13%;
+  background-color: rgb(45, 45, 45);
+  border-radius: 10px;
+  position: relative;
+  bottom: 5px;
+ }
+ .product {
+  background-color: bisque;
+ }
+ .productRow {
+  background-color: bisque;
+  border-radius: 10px;
+ }
+ .productDes {
+  background-color: orange;
+  padding: 1% 0% 1% 10%;
+ }
+ .categoryFig {
+  width: 100%;
+  padding: 2% 0% 1% 5%;
+  border-radius: 10px;
+  margin: 0% 0% 3% 0%;
+  background-color: bisque;
+ }
+ .categoryImage {
+  width: 95%;
+ }
+ .categoryImg {
+  width: 100%;
+ }
+ .settings {
+  width: 30%;
+  background-color: darkgray;
+  border-radius: 10px;
+ }
+ .loginbtn, .signupbtn {
+  float: left;
+ } 
+  .footer {
+    background-color: bisque;
+  }
+}
