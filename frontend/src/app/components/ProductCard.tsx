@@ -42,9 +42,9 @@ const ProductCard = ({ product, showQuantityInput = true }: ProductCardProps) =>
   };
 
   return (
-    <div className="card" style={{ width: '18rem' }}>
+    <div className="card" style={{ width: '20rem' }}>
       <Link href={`/products/${product.slug}`} className="text-decoration-none text-dark">
-        <div className="position-relative" style={{ width: '100%', height: '250px' }}>
+        <div className="position-relative productCard" style={{ width: '100%', height: '250px' }}>
           <Image
             src={product.images?.[0]?.image || '/placeholder.png'}
             alt={product.name}
@@ -52,10 +52,11 @@ const ProductCard = ({ product, showQuantityInput = true }: ProductCardProps) =>
             height={200}
             style={{ objectFit: 'cover' }}
             sizes="(max-width: 768px) 100vw, 33vw"
+            className='productImage'
           />
         </div>
         <div className="card-body">
-          <h5 className="card-title">{product.name}</h5>
+          <h5 className="card-title productName">{product.name}</h5>
           <p className="card-text">{product.description}</p>
           <p className="card-text">${product.price}</p>
           <p className="card-text">Rating: {product.rating}</p>
@@ -69,10 +70,10 @@ const ProductCard = ({ product, showQuantityInput = true }: ProductCardProps) =>
             min="1"
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
-            className="form-control mb-2"
+            className="form-control mb-2 cartForm cartInput"
             placeholder="Quantity"
           />
-          <button onClick={handleAddToCart} className="btn btn-primary w-100">
+          <button onClick={handleAddToCart} className="btn btn-primary w-100 cartForm">
             Add to Cart
           </button>
         </div>

@@ -22,7 +22,7 @@ export default async function RootLayout(props: {
         <link rel="stylesheet" href="/bootstrap/css/bootstrap-grid.min.css" />
       </head>
       <body className="body">
-        <div>
+        <div className="container">
           <AuthProvider>
           <CartProvider>
           <Header />

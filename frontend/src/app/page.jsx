@@ -10,8 +10,8 @@ import SignUpButton from "./components/SignUpButton"
 
 const Home = () => {
   return (
-    <div className="homeContainer col-lg-6 col-md-6 col-sm-6 col-xm-6">
-      <div className=' col-lg-6 col-md-6 col-sm-6 col-xm-6'>
+    <div className="homeContainer">
+      <div className=''>
       <div>
          <LoginToggle />
          <SignUpButton />

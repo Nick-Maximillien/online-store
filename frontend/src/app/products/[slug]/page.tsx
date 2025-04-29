@@ -39,8 +39,6 @@ export default function ProductDetails() {
   return (
     <div className="container py-5">
       <h1 className="text-center">{product.name}</h1>
-      <p className="text-muted">{product.description}</p>
-
       <div className="d-flex justify-content-center gap-4 flex-wrap mb-4">
         {product.images?.slice(0, 2).map((img, index) => (
           <Image
@@ -49,7 +47,7 @@ export default function ProductDetails() {
             alt={`${product.name} image ${index + 1}`}
             width={300}
             height={200}
-            className="rounded shadow-sm"
+            className="rounded shadow-sm slugImage"
           />
         ))}
       </div>

@@ -8,11 +8,11 @@ export default function Header() {
 
   return (
     <header className="header col-12">
-      <div className="row align-items-center">
+      <div className="row align-items-center cartContainer">
         <div className="col-2 logo">
-          <img className="logoImg" src="/images/logo.png" alt="" />
+          <img className="logoImg" src="/images/logo.png" alt="logo" />
         </div>
-        <nav className="col-8 d-flex justify-content-center">
+        <nav className="col-8 d-flex justify-content-center nav">
           <ul className="nav col-8">
             <li className="nav-item"><Link className="nav-link" href="/">Home</Link></li>
             <li className="nav-item"><Link className="nav-link" href="/categories">Categories</Link></li>
@@ -22,9 +22,9 @@ export default function Header() {
         </nav>
         <div className="col-2 cart">
           <Link href="/cart" className="btn btn-outline-primary">
-          🛒 Cart
+          <p className="basket">🛒 Cart </p>
            {cart.length > 0 && (
-            <span>  ( {cart.length} )</span>
+            <span className="cartLength">  ( {cart.length} )</span>
            )}
           </Link>
         </div>

@@ -29,7 +29,7 @@ export default function CategoriesSection() {
                   <Image
                     src={category.images[0].image}
                     alt={category.name}
-                    width={400}
+                    width={280}
                     height={250}
                     className="card-img-top"
                   />
