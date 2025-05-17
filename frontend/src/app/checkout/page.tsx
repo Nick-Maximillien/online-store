@@ -28,9 +28,12 @@ const CheckoutPage = () => {
         throw new Error("Total amount must be a valid positive number.");
       }
 
+      // 1. Create order on Django
       const orderRes = await fetch("http://localhost:8000/orders/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           name: user?.name || "Jane Doe",
           email: user?.email || "janedoe@gmail.com",
@@ -38,7 +41,7 @@ const CheckoutPage = () => {
           address: "Nairobi",
           total,
           items: cart.map((item) => ({
-            product_id: item.id,
+            product_id: item.id,  // assuming this is product FK
             quantity: item.quantity,
             price: item.price
           }))
@@ -50,24 +53,28 @@ const CheckoutPage = () => {
         throw new Error(errorData.message || "Failed to create order");
       }
 
-      const { order_id } = await orderRes.json();
+      const orderData = await orderRes.json();
 
-      const paymentRes = await fetch("http://localhost:3000/mock-payments/mpesa/initiate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          orderId: order_id,
-          provider: "mpesa",
-          amount: total,
-        }),
-      });
+      // 2. FAKE payment response instead of calling real API
+      // const paymentRes = await fetch("http://localhost:3000/mock-payments/mpesa/initiate/", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     orderId: orderData.id,
+      //     provider: "mpesa",
+      //     amount: total,
+      //   }),
+      // });
 
-      if (!paymentRes.ok) {
-        const errorData = await paymentRes.json();
-        throw new Error(errorData.message || "Payment failed");
-      }
+      // if (!paymentRes.ok) {
+      //   const errorData = await paymentRes.json();
+      //   throw new Error(errorData.message || "Payment failed");
+      // }
 
-      const { status } = await paymentRes.json();
+      // const { status } = await paymentRes.json();
+
+      // Use fake success status:
+      const status = "success";
       setPaymentStatus(status);
       clearCart();
 

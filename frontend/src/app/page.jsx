@@ -1,11 +1,11 @@
 "use server"
-import { Suspense } from 'react'
-import FeaturedCategories from './components/FeaturedCategories'
-import TrendingProducts from './components/TrendingProducts'
-import TestimonyToggle from './components/TestimonyToggle' 
-import Newsletter from "./components/Newsletter"
-import LoginToggle from './components/LoginToggle'
-import SignUpButton from "./components/SignUpButton"
+import { Suspense } from 'react';
+import FeaturedCategories from './components/FeaturedCategories';
+import TrendingProducts from './components/TrendingProducts';
+import TestimonyToggle from './components/TestimonyToggle'; 
+import Newsletter from "./components/Newsletter";
+import LoginToggle from './components/LoginToggle';
+import SignUpButton from "./components/SignUpButton";
 
 
 const Home = () => {

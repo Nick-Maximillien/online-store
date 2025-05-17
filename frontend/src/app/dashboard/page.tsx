@@ -1,43 +1,18 @@
-"use client";
+// app/dashboard/page.tsx or pages/dashboard.tsx (depending on your setup)
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useAuth } from "@utils/useAuth";
-import Link from "next/link";
-import Counter from "../components/Counter";
-import SettingToggle from "../components/SettingToggle";
+import { useAuth } from 'context/AuthContext';
+import ProtectedRoute from 'app/components/ProtectedRoute';
 
-export default function Dashboard() {
-  const router = useRouter();
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    if (!useAuth()) {
-      router.push("/");
-    } else {
-      const storedUser = localStorage.getItem("user");
-      setUser(storedUser ? JSON.parse(storedUser) : null);
-    }
-  }, []);
+export default function DashboardPage() {
+  const { user, logout } = useAuth();
 
   return (
-    <div className="container">
-      {user ? (
-        <div>
-          <h1>Welcome {user.username} !</h1>
-          <p>Would you like to go <Link href={"/products"}>Shopping</Link></p>
-          <p><strong>Name:</strong> {user.username}</p>
-          <p><strong>Email:</strong> {user.email}</p>
-          <p><strong>Phone:</strong> {user.phone}</p>
-          <button onClick={() => { localStorage.clear(); router.push("/"); }}>
-            Logout
-          </button>
-          <SettingToggle />
-          <Counter />
-        </div>
-      ) : (
-        <p>Loading user data...</p>
-      )}
-    </div>
+    <ProtectedRoute>
+      <div>
+        <h1>Welcome, {user?.username || user?.email}!</h1>
+        <button onClick={logout}>Logout</button>
+      </div>
+    </ProtectedRoute>
   );
 }

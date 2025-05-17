@@ -5,7 +5,7 @@ const SignUpButton = () => {
     const router = useRouter();
   return (
       <div>
-      <button onClick={() => router.push("/auth/signup")}>Not a member? Sign up Today !</button>
+      <button onClick={() => router.push("/signup")}>Not a member? Sign up Today !</button>
     </div>
   );
 };

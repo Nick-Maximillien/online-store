@@ -1,27 +1,26 @@
-// pages/login.tsx
-'use client'
+'use client';
 import { useState } from 'react';
 import { useAuth } from 'context/AuthContext';
 
-export default function LoginPage() {
-  const { login } = useAuth();
+export default function SignupPage() {
+  const { signup } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await login(email, password);
+      await signup(email, password);
     } catch (err) {
-      alert('Invalid credentials');
+      alert('Signup failed');
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleSignup}>
       <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
       <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" required />
-      <button type="submit">Login</button>
+      <button type="submit">Sign Up</button>
     </form>
   );
 }
