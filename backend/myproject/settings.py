@@ -89,9 +89,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
-# Database - use DATABASE_URL from environment (Railway provides this)
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'ZMlAEpiaERxRmlUwOfbPljYQjPBkUuMv',
+        'HOST': 'metro.proxy.rlwy.net',  # PUBLIC HOST!
+        'PORT': '53690',                  # PUBLIC PORT!
+    }
 }
 
 
