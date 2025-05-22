@@ -6,12 +6,18 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    image = CloudinaryField('image', blank=True, null=True) 
+    image = CloudinaryField('image', blank=True, null=True)
     featured = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, blank=True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
+
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
