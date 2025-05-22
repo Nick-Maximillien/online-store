@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils.text import slugify
-from django.contrib.auth.models import User  # Add this
+from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User  
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    image = models.ImageField(upload_to='categories/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True) 
     featured = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, blank=True)
 
@@ -32,7 +33,7 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(upload_to="products/")
+    image = CloudinaryField('image')
 
     def __str__(self):
         return f"{self.product.name} Image"
