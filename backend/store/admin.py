@@ -15,4 +15,14 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]
     prepopulated_fields = {"slug": ("name",)}
 
-admin.site.register(Product, ProductAdmin)    
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug', 'featured', 'image_preview']
+
+    def image_preview(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
+        return "No Image"
+
+    image_preview.short_description = 'Image'
+
+admin.site.register(Product, ProductAdmin, CategoryAdmin)    
