@@ -38,11 +38,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
+    'cloudinary',
+    'cloudinary_storage',
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
     'users',
 ]
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Configure REST & JWT
 
@@ -132,10 +143,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'store/static')
 ]
 
-# Media files
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 
