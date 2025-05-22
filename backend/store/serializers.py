@@ -2,14 +2,30 @@ from rest_framework import serializers
 from .models import Category, Product, ProductImage, Purchase, Order, OrderItem
 
 class CategorySerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
+
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = ['id', 'name', 'description', 'featured', 'slug', 'image_url']
+
+    def get_image_url(self, obj):
+        if obj.image:
+            return obj.image.url
+        return None
+
 
 class ProductImageSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
+
     class Meta:
         model = ProductImage
-        fields = ['image']        
+        fields = ['image_url']
+
+    def get_image_url(self, obj):
+        if obj.image:
+            return obj.image.url
+        return None
+    
 
 class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
